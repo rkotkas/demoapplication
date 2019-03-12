@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:utext="${title}"></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+<div class="container">
+    <h2>Welcome!</h2>
+    <li> This is a Spring Boot application</li>
+    <li> There are 3 users in the database (username and password)</li>
+    <li> You have to log in with one of the user credentials (user registration is not implemented)</li>
+    <li> You are displayed a list of clients that you have entered. You are not allowed to see other users' clients.</li>
+    <li> You can add and edit clients </li>
+    <li> When a new client is saved, all mandatory fields are validated</li>
+    <li> All input data is stored to database</li>
+    <li> Country selection box values are populated from database.</li>
+
+</div>
+</body>
+</html>

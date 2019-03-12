@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Client list</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<div class="container">
+    <h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
+
+    <div class="py-5 text-center">
+        <h2>Clients</h2>
+    </div>
+    <div class="row">
+        <a href="add-client" class="btn btn-primary">Add client</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Username</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client,iter : ${clients}">
+                <td th:text="${iter.count}"></td>
+                <td th:text="${client.getFirstName()}"></td>
+                <td th:text="${client.getLastName()}"></td>
+                <td th:text="${client.getUsername()}"></td>
+                <td>
+                    <a th:href="@{/edit-client/id={id} (id=${client.getId()})}" class="btn btn-primary">Edit client</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2019 Company Name</p>
+</footer>
+</body>
+</html>
